@@ -1,5 +1,11 @@
 const Migrations = artifacts.require("Migrations");
+const DAICOIN = artifacts.require("DAICOIN");
 
-module.exports = function(deployer) {
-  deployer.deploy(Migrations);
+
+module.exports = async function(deployer) {
+  await deployer.deploy(Migrations);
+  await deployer.deploy(DAICOIN);
+
+  const token=await DAICOIN.deployed()
+
 };
